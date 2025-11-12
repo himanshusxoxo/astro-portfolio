@@ -7,12 +7,10 @@ export const loaderAnimation = [
 ]
 
 export const LINKS = {
-  github: 'https://github.com/vivekraina7',
-  linkedin: 'https://www.linkedin.com/in/vivekrainaa/',
-  mail: 'mailto:vivekraina33.vr@gmail.com',
-  instagram: 'https://www.instagram.com/viren.raina/',
-  medium: 'https://www.linkedin.com/in/vivekrainaa/',
-  discord: 'https://www.linkedin.com/in/vivekrainaa/',
+  github: 'https://github.com/SandeeepKrish',
+  linkedin: 'https://www.linkedin.com/in/sandeep-yadav-92a27b294/',
+  mail: 'yadavsandeep0718@gmail.com',
+
 }
 
 // Global
@@ -20,7 +18,7 @@ export const SITE: Site = {
   TITLE: 'Astro Sphere',
   DESCRIPTION:
     'Welcome to Astro Sphere, a portfolio and blog for designers and developers.',
-  AUTHOR: 'Mark Horn',
+  AUTHOR: 'Sandeep Yadav',
 }
 
 // Work Page
@@ -51,61 +49,47 @@ export const SEARCH: Page = {
 export const STUDIES = [
   {
     title: 'Computer Science',
-    institution: 'B.Tech CSE Hons.: Graphic Era University',
-    link: 'https://gehu.ac.in/',
-    date: '2019 - 2027',
+    institution: 'MCA : Model Institute of Engineering and Technology',
+    link: 'https://www.mycamu.co.in/#/home/feed/profile',
+    date: '2022 - 2024',
   },
   {
-    title: 'X',
-    institution: 'X : Shiksha Niketan',
-    link: 'https://shikshaniketanjk.in/',
+    title: '...',
+    institution: 'BCA : Cluster University of Jammu',
+    link: '',
+    date: '2019 - 2022',
+  },
+  {
+    title: '...',
+    institution: 'Coursera',
+    link: 'https://www.coursera.org/account-profile',
     date: '2018 - 2022',
   },
-  {
+   {
     title: 'XII',
     institution: 'XII : Shiksha Niketan',
     link: 'https://shikshaniketanjk.in/',
-    date: '2018 - 2022',
+    date: '2017 - 2019',
   }
+
+
 ]
 
 export const EXPERIENCE = [
   {
-    company: 'Qriocity Ventures',
-    location: 'Chennai, India',
-    position: 'ML/AI Engineer',
-    start: 'Jan 2024',
-    link: 'https://www.qriocity.in/',
-    end: 'Current',
+    company: 'TWENTYFIVE TECHNOARTS',
+    location: 'Jammu, India',
+    position: 'Software Development Engineer',
+    start: '2024 - 2025',
+    link: 'https://www.facebook.com/25Technoarts/',
+
     tasks: [
-      'Led a cross-functional team of 7–10 ML and full-stack developers for AI-powered solutions.',
-      'Built YOLO & Custom models for real-time object detection and vision tasks.',
-      'Developed HuggingFace-based NLP models for domain-specific applications.',
-      'Delivered projects in retail analytics (shelf monitoring) and finance (OCR parsing).',
+      'Designed and implemented a hospital management system to fully digitalize operations, replacing paper-based workflows and integrating AI to assist intern doctors with real-time clinical insights.',
+      'Contributed to SkincareConnect, a live AI-driven product, by enhancing the frontend architecture, developing new responsive modules, and deploying production-ready builds via XPanel.',
+      'Engineered and optimized RESTful APIs to streamline communication between frontend, backend, and AI microservices; implemented secure authentication (JWT), request validation, pagination, and versioning with detailed API documentation using Swagger/Postman.',
+      'Architected and maintained robust databases using MongoDB, designing scalable data models, efficient indexing, and aggregation pipelines to support AI analytics and real-time data processing.',
+      'Integrated AI services within a modern frontend ecosystem built on React and Tailwind CSS, delivering a seamless, responsive user experience and enabling smooth interaction with machine learning components through well-structured REST endpoints.'
+
     ],
   },
-  {
-    company: 'Rellins',
-    location: 'Chandigarh, India',
-    position: 'AI Engineer',
-    link: 'https://relinns.com/',
-    start: 'May 2023',
-    end: 'Oct 2023',
-    tasks: [
-      'Created a chatbot using ChatGPT-4, LlamaIndex, and Falcon for user support.',
-      'Fine-tuned NLP models to boost chatbot performance and efficiency.'
-    ],
-  },
-  {
-    company: 'Omdana',
-    link: 'https://www.omdena.com/',
-    location: 'Remote - Omdana Berlin Chapter',
-    position: 'ML developer',
-    start: 'April 2023',
-    end: ' May 2023',
-    tasks: [
-      'Development of the Imaginamos platform with the use of React, Redux, and Material UI',
-      'Work in ETB project with the use of React, Redux, and Material UI',
-    ],
-  }
 ]
