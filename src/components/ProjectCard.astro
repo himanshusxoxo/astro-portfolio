@@ -13,24 +13,28 @@ const {
   live,
 } = Astro.props
 ---
-
-<Tag href={href ?? 'javascript:void(0)'} class={className ?? ''} style="text-decoration: none;">
+<Tag href={href ?? undefined} class={className ?? ''} style="text-decoration: none;">
   <ShadcnCard
-    class={`group relative flex-none overflow-hidden rounded-2xl shadow-lg transition duration-150 ease-in-out ${href ? 'cursor-pointer hover:border-primary' : ''}`}
+    class={`h-full flex flex-col overflow-hidden rounded-2xl shadow-lg transition duration-150 ease-in-out ${href ? 'cursor-pointer hover:border-primary' : ''}`}
   >
-    <img
-      src={imagePath}
-      alt={altText ?? heading}
-      class="h-48 w-full rounded-t-2xl object-cover"
-      loading="eager"
-    />
-    <div class="flex flex-col gap-y-0.5 px-5 py-4">
-      <h3 class="text-lg font-medium leading-tight">{heading}</h3>
-      {subheading && <p class="text-sm text-muted-foreground mt-1">{subheading}</p>}
+    <!-- image wrapper: fixed height so all cards show same size -->
+    <div class="h-44 md:h-48 w-full overflow-hidden bg-gray-800">
+      <img
+        src={imagePath}
+        alt={altText ?? heading}
+        class="h-full w-full object-cover"
+        loading="eager"
+      />
     </div>
 
-    <div class="px-5 pb-4 pt-2">
-      <div class="flex gap-3 items-center">
+    <!-- content area -->
+    <div class="flex grow flex-col justify-between px-5 py-4">
+      <div>
+        <h3 class="text-lg font-medium leading-tight">{heading}</h3>
+        {subheading && <p class="text-sm text-muted-foreground mt-1">{subheading}</p>}
+      </div>
+
+      <div class="mt-4 flex gap-3 items-center">
         {repo &&
           <a
             class="text-sm font-medium underline hover:text-primary"
