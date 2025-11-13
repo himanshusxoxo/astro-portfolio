@@ -21,19 +21,19 @@ import { EXPERIENCE } from '../lib/constants'
         {
           EXPERIENCE.map((entry) => (
             <li class="animate mt-4 border-b border-black/10 py-8 first-of-type:mt-0 first-of-type:pt-0 last-of-type:border-none dark:border-white/25">
-              <div class="mb-4 text-sm uppercase">
-                {entry.start} 
-              </div>
+              <div class="mb-4 text-sm uppercase">{entry.start}</div>
               <a
                 href={entry.link ?? ''}
                 class={`font-semibold ${entry?.link ? 'text-primary' : 'text-foreground'}`}
               >
                 {entry.company}
               </a>
-              <div class="text-sm font-semibold">{entry.position}</div>
-              <article class="prose dark:prose-invert">
+              <div class="prose dark:prose-invert text-lg font-semibold [&>*:first-child]:mt-3">
+                {entry.position}
+              </div>
+              <article class="prose dark:prose-invert [&>*:first-child]:mt-3">
                 {entry.tasks.map((i) => (
-                  <>{i}</>
+                  <p>{i}</p>
                 ))}
               </article>
             </li>
