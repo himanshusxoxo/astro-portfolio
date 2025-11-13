@@ -6,70 +6,27 @@ import ProjectCard from '../components/ProjectCard.astro'
 
 import { contentfulClient } from '../lib/contentful'
 
-// SAMPLE fallback data
+// fallback sample projects...
 const SAMPLE_PROJECTS = [
-  {
-    id: 'sample-1',
-    name: 'SkincareConnect (Demo)',
-    description: 'AI-driven skincare recommender with responsive React/Tailwind UI.',
-    img: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=1400&q=80&auto=format&fit=crop',
-    website: 'https://example-live-skincare.vercel.app',
-    repo: 'https://github.com/your-username/skincareconnect',
-  },
-  {
-    id: 'sample-2',
-    name: 'Hospital Management System (Demo)',
-    description: 'Digitalized hospital workflows & AI-assisted intern tools.',
-    img: 'https://images.unsplash.com/photo-1587502536263-3f77a9b1d3f1?w=1400&q=80&auto=format&fit=crop',
-    website: 'https://example-hms.vercel.app',
-    repo: 'https://github.com/your-username/hospital-management-demo',
-  },
-  {
-    id: 'sample-3',
-    name: 'Portfolio UI Clone',
-    description: 'Modern portfolio built with Astro + Tailwind + shadcn-ui.',
-    img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80&auto=format&fit=crop',
-    website: 'https://example-portfolio.vercel.app',
-    repo: 'https://github.com/your-username/astro-portfolio-clone',
-  },
-  {
-    id: 'sample-4',
-    name: 'Todo App (Demo)',
-    description: 'Fast todo app with local persistence and animations.',
-    img: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1400&q=80&auto=format&fit=crop',
-    website: 'https://example-todo.vercel.app',
-    repo: 'https://github.com/your-username/todo-demo',
-  },
-  {
-    id: 'sample-5',
-    name: 'Chat UI Demo',
-    description: 'Real-time chat interface using websockets.',
-    img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80&auto=format&fit=crop',
-    website: 'https://example-chat.vercel.app',
-    repo: 'https://github.com/your-username/chat-ui',
-  },
-  {
-    id: 'sample-6',
-    name: 'Analytics Dashboard',
-    description: 'Dashboard with charts and filters using recharts.',
-    img: 'https://images.unsplash.com/photo-1526378722353-0f2e8e6b0b30?w=1400&q=80&auto=format&fit=crop',
-    website: 'https://example-dashboard.vercel.app',
-    repo: 'https://github.com/your-username/analytics-dashboard',
-  },
+  { id: 'p1', name: 'SkincareConnect (Demo)', description: 'AI-driven skincare...', img: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=1400&q=80&auto=format&fit=crop', website: '#', repo: '#' },
+  { id: 'p2', name: 'Hospital Management (Demo)', description: 'Digitalized hospital...', img: 'https://images.unsplash.com/photo-1587502536263-3f77a9b1d3f1?w=1400&q=80&auto=format&fit=crop', website: '#', repo: '#' },
+  { id: 'p3', name: 'Portfolio UI Clone', description: 'Astro + Tailwind + shadcn-ui', img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80&auto=format&fit=crop', website: '#', repo: '#' },
+  { id: 'p4', name: 'Todo App (Demo)', description: 'Fast todo app', img: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1400&q=80&auto=format&fit=crop', website: '#', repo: '#' },
+  { id: 'p5', name: 'Chat UI Demo', description: 'Realtime chat UI', img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80&auto=format&fit=crop', website: '#', repo: '#' },
+  { id: 'p6', name: 'Analytics Dashboard', description: 'charts + filters', img: 'https://images.unsplash.com/photo-1526378722353-0f2e8e6b0b30?w=1400&q=80&auto=format&fit=crop', website: '#', repo: '#' },
 ]
 
-// attempt to fetch contentful entries, fallback on SAMPLE_PROJECTS
 let entries = { items: [] }
 try {
   const res = await contentfulClient.getEntries({})
   if (res && res.items && res.items.length) entries = res
 } catch (err) {
-  console.warn('Contentful fetch failed, using sample projects')
+  console.warn('Contentful fetch failed, using sample projects', err)
 }
 
 const getImageUrl = (asset) => {
   if (!asset) return ''
-  const url = (asset?.fields?.file?.url ?? '') as string
+  const url = asset?.fields?.file?.url ?? ''
   if (!url) return ''
   if (url.startsWith('//')) return `https:${url}`
   if (url.startsWith('http')) return url
@@ -79,7 +36,7 @@ const getImageUrl = (asset) => {
 const projects = (entries?.items && entries.items.length > 0)
   ? entries.items.map((entry: any) => ({
       id: entry?.sys?.id,
-      name: entry?.fields?.name ?? 'Untitled Project',
+      name: entry?.fields?.name ?? 'Untitled',
       description: entry?.fields?.description ?? '',
       img: getImageUrl(entry?.fields?.img),
       website: entry?.fields?.website ?? '',
@@ -87,39 +44,40 @@ const projects = (entries?.items && entries.items.length > 0)
     }))
   : SAMPLE_PROJECTS
 ---
-<BaseLayout title="Portfolio" description="Projects and some clones that I did">
-  <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="slide">
+<BaseLayout title="Portfolio" description="Projects and clones">
+  <main class="min-h-[80vh]">
     <TopLayout>
-      <!-- Center the heading and constrain width -->
-      <div class="max-w-6xl mx-auto w-full px-4">
-        <h2 class="text-center scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-          Projects and clone's
-        </h2>
+      <!-- Center heading (full-width wrapper ensures correct centering) -->
+      <div class="w-full flex justify-center">
+        <div class="w-full max-w-5xl px-4">
+          <h2 class="text-center scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight">Projects and clone's</h2>
+        </div>
       </div>
     </TopLayout>
-<BottomLayout size="xl">
-  <div class="w-full flex justify-center px-4">
-    <div class="w-full max-w-5xl mx-auto">
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {projects.map((p) => (
-          <ProjectCard
-            key={p.id}
-            href={p.website || undefined}
-            heading={p.name}
-            subheading={p.description}
-            imagePath={p.img || 'https://via.placeholder.com/800x450?text=No+Image'}
-            altText={p.name}
-            class="w-full"
-            repo={p.repo}
-            live={p.website}
-          />
-        ))}
+
+    <BottomLayout size="xl">
+      <!-- CENTERED GRID WRAPPER: this guarantees centering even if BottomLayout adds padding -->
+      <div class="w-full flex justify-center">
+        <!-- max-w constrains content and centers it -->
+        <div class="w-full max-w-5xl px-4">
+          <!-- Grid: 1 col on mobile, 2 cols on sm+, consistent gap -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {projects.map((p) => (
+              <ProjectCard
+                key={p.id}
+                href={p.website || undefined}
+                heading={p.name}
+                subheading={p.description}
+                imagePath={p.img || 'https://via.placeholder.com/800x450?text=No+Image'}
+                altText={p.name}
+                class="w-full"
+                repo={p.repo}
+                live={p.website}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-
-    </div>
-  </div>
-</BottomLayout>
-
-
-   
+    </BottomLayout>
+  </main>
+</BaseLayout>
