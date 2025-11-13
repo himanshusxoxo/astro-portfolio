@@ -97,26 +97,29 @@ const projects = (entries?.items && entries.items.length > 0)
         </h2>
       </div>
     </TopLayout>
-
-    <BottomLayout size="xl">
-      <div class="max-w-6xl mx-auto w-full px-4">
-        <!-- Grid: 1 col mobile, 2 cols from small screens up -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {projects.map((p) => (
-            <ProjectCard
-              key={p.id}
-              href={p.website || undefined}
-              heading={p.name}
-              subheading={p.description}
-              imagePath={p.img || 'https://via.placeholder.com/800x450?text=No+Image'}
-              altText={p.name}
-              class="w-full"
-              repo={p.repo}
-              live={p.website}
-            />
-          ))}
-        </div>
+<BottomLayout size="xl">
+  <div class="w-full flex justify-center px-4">
+    <div class="w-full max-w-5xl mx-auto">
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {projects.map((p) => (
+          <ProjectCard
+            key={p.id}
+            href={p.website || undefined}
+            heading={p.name}
+            subheading={p.description}
+            imagePath={p.img || 'https://via.placeholder.com/800x450?text=No+Image'}
+            altText={p.name}
+            class="w-full"
+            repo={p.repo}
+            live={p.website}
+          />
+        ))}
       </div>
-    </BottomLayout>
-  </main>
-</BaseLayout>
+
+    </div>
+  </div>
+</BottomLayout>
+
+
+   
