@@ -46,7 +46,7 @@ export const SEARCH: Page = {
 }
 
 // Study Page
-// export const STUDIES = [
+export const STUDIES = [
 //   {
 //     title: 'Computer Science',
 //     institution: 'MCA : Model Institute of Engineering and Technology',
