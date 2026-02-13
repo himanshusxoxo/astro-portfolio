@@ -1,0 +1,5 @@
+name = "astro-portfolio"
+   compatibility_date = "2026-02-13"
+   
+   [assets]
+   directory = "./dist"
