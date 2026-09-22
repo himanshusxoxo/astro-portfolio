@@ -9,7 +9,7 @@ export const loaderAnimation = [
 export const LINKS = {
   github: 'https://github.com/himanshusxoxo',
   linkedin: 'https://www.linkedin.com/in/himanshu-sharma-245177334/',
-  mail: 'himanshusxoxo@gmail.com',
+  mail: 'himanshu.sharma1101@yahoo.com',
 
 }
 
@@ -47,12 +47,12 @@ export const SEARCH: Page = {
 
 // Study Page
 export const STUDIES = [
-//   {
-//     title: 'Computer Science',
-//     institution: 'MCA : Model Institute of Engineering and Technology',
-//     link: 'https://www.mycamu.co.in/#/home/feed/profile',
-//     date: '2022 - 2024',
-//   },
+  {
+    title: 'Master of Business Administration',
+    institution: 'MBA : Manipal Univerity Jaipur',
+    link: 'https://muj.onlinemanipal.com/online-degree-courses-manipal-university-jaipur?utm_source=Google&utm_medium=CPC&utm_campaign=NS_GGL_Brand_MUJ_Generic_Exact&utm_content=Generic_MUJ_Core_Exact_DKI_v2&utm_keyword=manipal%20university%20jaipur&matchtype=e&utm_adset=g&utm_adid=188495875193&utm_position=23147244154&gad_source=1&gad_campaignid=23147244154&gbraid=0AAAAAB95JP4WHv2Gdqk9QILAEi7pCvcQL&gclid=Cj0KCQjwzsjVBhC3ARIsALnMv4kvWjGAl2ZO2WLQEZIFpmYNKAk_ri0-VwBeuoRiCHQdQjg8AQpSI6QaApn2EALw_wcB',
+    date: '2026 - Pursuing',
+  },
   {
     title: 'Computer Science',
     institution: 'BCA : Cluster University of Jammu',
